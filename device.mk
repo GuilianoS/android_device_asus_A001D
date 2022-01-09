@@ -171,7 +171,10 @@ PRODUCT_COPY_FILES += \
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
-    NexusLauncherRelease
+    NexusLauncherRelease \
+		Launcher3QuickStep \
+		Settings
+
 
 # Display
 PRODUCT_PACKAGES += \
@@ -465,3 +468,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
 		$(LOCAL_PATH)/configs/wifi/WCNSS_qcom_wlan_nv.bin:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_wlan_nv.bin \
 		$(LOCAL_PATH)/configs/wifi/WCNSS_wlan_dictionary.dat:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_wlan_dictionary.dat
+
+# LiveDisplay
+PRODUCT_PACKAGES += \
+		vendor.lineage.livedisplay@2.0-service-sdm

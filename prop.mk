@@ -80,11 +80,11 @@ persist.debug.coresight.config=stm-events
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-debug.egl.hw=0 \
+debug.egl.hw=1 \
 debug.enable.sglscale=1 \
 debug.mdpcomp.logs=0 \
 debug.sf.enable_hwc_vds=1 \
-debug.sf.hw=0 \
+debug.sf.hw=1 \
 debug.sf.latch_unsignaled=1 \
 debug.cpurend.vsync=false \
 debug.sf.recomputecrop=0 \
@@ -102,7 +102,23 @@ vendor.display.disable_skip_validate=1 \
 vendor.gralloc.disable_ahardware_buffer=1 \
 vendor.gralloc.enable_fb_ubwc=1 \
 ro.hardware.egl=adreno \
-ro.hardware.vulkan=adreno
+ro.hardware.vulkan=adreno \
+debug.performance.tuning=1 \
+debug.egl.profiler=1 \
+debug.composition.type=gpu \
+persist.sys.ui.hw=1 \
+video.accelerate.hw=1
+
+# Better Responsiveness & Speed
+PRODUCT_PROPERTY_OVERRIDES += \
+windowsmgr.max_events_per_sec=90 \
+ro.max.fling_velocity=12000 \
+ro.min.fling_velocity=8000 \
+ro.min_pointer_dur=8
+
+# Fix App Issues
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.kernel.android.checkjni=0
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -263,3 +279,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ro.zram.mark_idle_delay_mins=60 \
 ro.zram.first_wb_delay_mins=180 \
 ro.zram.periodic_wb_delay_hours=24
+
+# Qualcomm
+PRODUCT_PROPERTY_OVERRIDES += \
+com.qc.hardware=true \
+debug.qc.hardware=true
