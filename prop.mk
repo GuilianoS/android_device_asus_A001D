@@ -109,8 +109,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 drm.service.enabled=true
 
 # Fingerprint
-# PRODUCT_PROPERTY_OVERRIDES += \
-# persist.qfp=false
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.qfp=false
 
 # Fm
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -202,7 +202,7 @@ rild.libargs=-d/dev/smd0 \
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
 ro.telephony.iwlan_operation_mode=legacy \
 ro.telephony.call_ring.multiple=false \
-ro.telephony.default_network=22,20 \
+ro.telephony.default_network=9,9 \
 persist.sys.fflag.override.settings_network_and_internet_v2=true \
 service.qti.ims.enabled=1 \
 persist.vendor.vt.supported=1 \
@@ -245,21 +245,23 @@ wifi.interface=wlan0
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.device_config.runtime_native.usap_pool_enabled=true
 
-# LMKD
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.lmk.log_stats=true \
-ro.lmk.low=1001 \
-ro.lmk.medium=800 \
-ro.lmk.critical=0 \
-ro.lmk.critical_upgrade=false \
-ro.lmk.upgrade_pressure=100 \
-ro.lmk.downgrade_pressure=100 \
-ro.lmk.kill_heaviest_task=true \
-ro.lmk.kill_timeout_ms=100 \
-ro.lmk.use_minfree_levels=true
-
 # ZRAM
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.zram.mark_idle_delay_mins=60 \
 ro.zram.first_wb_delay_mins=180 \
 ro.zram.periodic_wb_delay_hours=24
+
+# GMS
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.com.google.rlzbrandcode=ASUP \
+ro.com.google.rlz_ap_whitelist=y0,y5,y6,y7,y9 \
+ro.com.google.clientidbase=android-asus \
+ro.com.google.clientidbase.ms=android-asus
+
+# OEM UNLOCK
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.oem_unlock_supported=true
+
+#set cutoff voltage to 3400mV
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.cutoff_voltage_mv=3400
